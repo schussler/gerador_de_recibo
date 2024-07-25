@@ -228,7 +228,7 @@ function gerarImg() {
 
   // Usa a biblioteca html2canvas para capturar o recibo como uma imagem
   html2canvas(reciboElement, {
-    scale: 2, // Aumenta a escala para melhorar a qualidade da imagem
+    scale: 4, // Aumenta a escala para melhorar a qualidade da imagem
     useCORS: true, // Permite o uso de recursos de outras origens, como fontes externas
   })
     .then((canvas) => {
