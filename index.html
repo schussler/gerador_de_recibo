@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cupom Não Fiscal</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+
+<body>
+  <!-- FORMULÁRIO DE ENTRADA -->
+  <div class="formulario" id="divFormulario">
+    <!-- ÁREA CLIENTE -->
+    <div class="cliente">
+      <label for="inputCliente">TUTOR</label>
+      <input type="text" id="inputCliente" placeholder="Digite o nome do cliente" />
+    </div>
+    <div class="cliente">
+      <label for="inputPet">PET</label>
+      <input type="text" id="inputPet" placeholder="Digite o nome do pet" />
+    </div>
+    <div class="cliente">
+      <label for="inputEndereco">ENDEREÇO</label>
+      <input type="text" id="inputEndereco" placeholder="Digite o endereço" />
+    </div>
+    <!-- ÁREA PRODUTO -->
+    <div class="produto">
+      <input class="w-20p" type="number" id="inputQuantidade" placeholder="QTD" />
+      <input class="w-50p" type="text" id="inputProduto" placeholder="PRODUTO" />
+      <input class="w-20p" type="number" id="inputValorUnitario" placeholder="UNT" />
+    </div>
+    <!-- BOTÃO ADICIONAR PRODUTO -->
+    <div class="adicionarProduto">
+      <button class="button" onclick="adicionarProduto()">+</button>
+    </div>
+
+    <!-- ÁREA TOTAL -->
+    <div class="previa"></div>
+    <div class="resultado">
+      <div class="total w-50p">
+        <button class="button" onclick="gerarRecibo()">IMPRIMIR RECIBO</button>
+      </div>
+      <div class="geraImg w-50p">
+        <button class="button" onclick="gerarImg()">GERAR IMG</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ÁREA CUPOM -->
+  <div class="cupom" id="cupom" style="display: none;">
+    <br>
+    <div class="titulo">STUDIO PET GM</div>
+    <div class="dados_loja">COMANDA DE SERVIÇO</div>
+    <div class="dados_loja">Rua Nova Iguaçu - 1595 - Jardim Mariléa, RO <br>(22) 99931-5339</div>
+    <div class="data"></div>
+    <hr>
+    <div class="dados_cliente" id="dadosCliente" class="oculto">
+      <!-- Os dados do cliente serão exibidos aqui -->
+    </div>
+    <hr>
+    <table class="tabela tbp">
+      <thead>
+        <tr>
+          <th class="w-8p">QTD</th>
+          <th class="w-40p">SERVIÇO</th>
+          <th class="w-15p">UNT</th>
+          <th class="w-15p">TOTAL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Linhas de produtos serão adicionadas aqui dinamicamente -->
+      </tbody>
+    </table>
+    <hr>
+    <div class="total" id="totalFinal" class="oculto">Total: R$ 00,00</div>
+    <div class="total" id="totalCartao" class="oculto">Cartão: R$ 00,00</div>
+  </div>
+
+  <!-- ÁREA RECIBO IMG -->
+  <div class="recibo" id="reciboImg" style="display: none;">
+    <img src="LOGO.jpg" alt="Logo" class="logo">
+    <div class="dados_loja">Rua Nova Iguaçu - 1595 - Jardim Mariléa, RO <br>(22) 99931-5339</div>
+    <div class="dataImg"></div>
+    <hr>
+    <div class="dados_cliente" id="dadosClienteImg">
+      <!-- Os dados do cliente serão exibidos aqui -->
+    </div>
+    <table class="tabela tbp" id="tabelaProdutosImg">
+      <thead>
+        <tr>
+          <th class="w-8p">QTD</th>
+          <th class="w-40p">SERVIÇO</th>
+          <th class="w-15p">UNT</th>
+          <th class="w-15p">TOTAL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Linhas de produtos serão adicionadas aqui dinamicamente -->
+      </tbody>
+    </table>
+    <hr>
+    <div class="total" id="totalFinalImg" class="oculto">Total: R$ 00,00</div>
+    <div class="total" id="totalCartaoImg" class="oculto">Cartão: R$ 00,00</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
