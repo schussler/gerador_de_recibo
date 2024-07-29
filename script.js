@@ -11,9 +11,9 @@ function adicionarProduto() {
     isNaN(quantidade) ||
     quantidade <= 0 ||
     isNaN(valorUnitario) ||
-    valorUnitario <= 0
+    valorUnitario < 0
   ) {
-    alert("QTD e UNT devem ser números válidos e maiores que 0.");
+    alert("QTD  devem ser números válidos e maiores que 0.");
     return;
   }
 
